@@ -1,4 +1,4 @@
-﻿namespace daf.manga.domain;
+﻿namespace Daf.Manga.Domain;
 
 public class Manga(string title, Person author, ReadingStatus status, TargetDemographic targetDemographic, int year, string? description = null) 
 {

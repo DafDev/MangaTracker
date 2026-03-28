@@ -1,4 +1,4 @@
-namespace daf.manga.domain.Adapters;
+namespace Daf.Manga.Domain.Adapters;
 using System.Collections.Generic;
 public interface IMangaRepository
 {

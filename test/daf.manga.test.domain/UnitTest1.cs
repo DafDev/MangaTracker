@@ -1,4 +1,4 @@
-﻿namespace daf.manga.test.domain;
+﻿namespace Daf.Manga.Test.Domain;
 
 public class UnitTest1
 {

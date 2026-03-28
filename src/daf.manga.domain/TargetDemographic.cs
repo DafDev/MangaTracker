@@ -1,4 +1,4 @@
-namespace daf.manga.domain;
+namespace Daf.Manga.Domain;
 
 public enum TargetDemographic
 {
