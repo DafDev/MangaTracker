@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/Daf.Manga.Application/Daf.Manga.Application.csproj" />
     <Project Path="src/Daf.Manga.Domain/Daf.Manga.Domain.csproj" />
   </Folder>
   <Folder Name="/test/">
