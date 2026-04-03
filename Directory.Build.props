@@ -1,0 +1,16 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="xunit" Version="2.9.3" />
+        <PackageReference Include="coverlet.collector" Version="8.0.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0-pre.3" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+        <PackageReference Include="FluentAssertions" Version="8.9.0" />
+        <PackageReference Include="NSubstitute" Version="6.0.0-rc.1" />
+        <PackageReference Include="LightResults" Version="10.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.2.26159.112"/>
+    </ItemGroup>
+</Project>

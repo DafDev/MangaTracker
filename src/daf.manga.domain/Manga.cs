@@ -8,5 +8,4 @@ public class Manga(string title, Person author, ReadingStatus status, TargetDemo
     public TargetDemographic TargetDemographic { get; set;} = targetDemographic;
     public int Year { get; set; } = year;
     public string? Description { get; set; } = description;
-
 }
