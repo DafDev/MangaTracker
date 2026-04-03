@@ -29,6 +29,7 @@ public class MangaServiceTests
         var result = await _sut.GetMangaByTitle(mangaTitle, CancellationToken.None);
         
         // Assert
-        result.Should().BeEquivalentTo(manga);
+        result.IsSuccess(out var expected).Should().BeTrue();
+        expected?.Should().BeEquivalentTo(manga);
     }
 }
