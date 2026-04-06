@@ -1,13 +1,11 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace Daf.Manga.Infra.Mongo;
 
-internal class MongoConnector : IConnectToMongo
+internal class MongoConnector(IOptions<MongoSettings> settings) : IConnectToMongo
 {
-    private const string ConnectionString =
-        "mongodb+srv://dafdev:jpHtRY3vM6bvNK7O@normal.aycpm.mongodb.net/?retryWrites=true&w=majority&appName=Normal";
-
-    private readonly MongoClient _client = new(ConnectionString);
+    private readonly MongoClient _client = new(settings.Value.ConnectionString);
   
     public IMongoClient Client => _client;
   

@@ -21,7 +21,8 @@ public class MangaRepository : IMangaRepository
     }
     public async Task<Result<IAsyncEnumerable<Domain.Manga>>> GetAllManga(CancellationToken cancellationToken)
     {
-        var results = await _mangas.FindAsync(null, null, cancellationToken);;
+        _logger.LogInformation("Getting all manga");
+        var results = await _mangas.FindAsync(_ => true, null, cancellationToken);;
         return results is null || await results.AnyAsync(cancellationToken) == false
             ? Result.Failure<IAsyncEnumerable<Domain.Manga>>("No mangas found")
             : Result.Success(results.ToAsyncEnumerable().Select(manga => manga.ToDomain()));
@@ -29,6 +30,7 @@ public class MangaRepository : IMangaRepository
 
     public async Task<Result<Domain.Manga>> GetMangaByTitle(string title, CancellationToken cancellationToken)
     {
+        _logger.LogInformation("Getting manga by title: {Title}", title);
         var filter = Builders<Dto.Manga>.Filter.Eq(manga => manga.Title, title);
         var manga = await _mangas.Find(filter).FirstOrDefaultAsync(cancellationToken);
         return manga is not null 
@@ -38,6 +40,7 @@ public class MangaRepository : IMangaRepository
 
     public async Task<Result> AddManga(Domain.Manga manga, CancellationToken cancellationToken)
     {
+        _logger.LogInformation("Adding manga: {Title}", manga.Title);
         var existingManga = await GetMangaByTitle(manga.Title, cancellationToken);
         if (existingManga.IsSuccess())
             await UpdateManga(manga, cancellationToken);
@@ -49,6 +52,7 @@ public class MangaRepository : IMangaRepository
 
     public async Task<Result> UpdateManga(Domain.Manga manga, CancellationToken cancellationToken)
     {
+        _logger.LogInformation("Updating manga: {Title}", manga.Title);
         var filter = Builders<Dto.Manga>.Filter.Eq(mangaToUpdate => mangaToUpdate.Title, manga.Title);
         var options = new ReplaceOptions { IsUpsert = true };
         var result = await _mangas.ReplaceOneAsync(filter, Dto.Manga.FromDomain(manga), options, cancellationToken);

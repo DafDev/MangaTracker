@@ -12,6 +12,9 @@
         <PackageReference Include="NSubstitute" Version="6.0.0-rc.1" />
         <PackageReference Include="LightResults" Version="10.0.3" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.2.26159.112"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="11.0.0-preview.2.26159.112" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="11.0.0-preview.2.26159.112" />
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="11.0.0-preview.2.26159.112" />
         <PackageReference Include="MongoDB.Driver" Version="3.7.1" />
     </ItemGroup>
 </Project>
