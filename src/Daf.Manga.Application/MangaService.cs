@@ -18,7 +18,7 @@ public class MangaService(IMangaRepository mangaRepository, ILogger<MangaService
         return await mangaRepository.DeleteManga(title, cancellationToken);
     }
 
-    public async Task<Result<IEnumerable<Domain.Manga>>> GetAllManga(CancellationToken cancellationToken)
+    public async Task<Result<IAsyncEnumerable<Domain.Manga>>> GetAllManga(CancellationToken cancellationToken)
     {
         logger.LogInformation("Getting all manga");
         return await mangaRepository.GetAllManga(cancellationToken);
