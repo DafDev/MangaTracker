@@ -1,0 +1,7 @@
+﻿services:
+  daf.manga.infra:
+    image: daf.manga.infra
+    build:
+      context: .
+      dockerfile: src/Daf.Manga.Infra/Dockerfile
+

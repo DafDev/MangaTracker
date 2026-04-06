@@ -1,7 +1,11 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="compose.yaml" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/Daf.Manga.Application/Daf.Manga.Application.csproj" />
     <Project Path="src/Daf.Manga.Domain/Daf.Manga.Domain.csproj" />
+    <Project Path="src\Daf.Manga.Infra\Daf.Manga.Infra.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/Daf.Manga.Test.Domain/Daf.Manga.Test.Domain.csproj" />
