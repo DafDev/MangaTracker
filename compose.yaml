@@ -1,8 +1,27 @@
 ﻿version: '3.8'
 services:
+  webapi:
+    image: daf.manga.api
+    build:
+      context: .
+      dockerfile: src/Daf.Manga.Api/Dockerfile
+    container_name: webapi
+    networks:
+      - daf_manga
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__dockerEssentials=Server=postgres;Port=5433;Database=dockerEssentials;User Id=pgadmin;Password=pgadmin
+    ports:
+      - 5080:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
   mongodb:
     image: mongo:7.0
     container_name: mongo_dev
+    networks:
+      - daf_manga
     restart: unless-stopped
     ports:
       - "27017:27017"
@@ -16,6 +35,8 @@ services:
   mongo-express:          # UI web optionnelle mais pratique
     image: mongo-express
     container_name: mongo_express
+    networks:
+      - daf_manga
     restart: unless-stopped
     ports:
       - "8081:8081"
